@@ -1,0 +1,30 @@
+body{
+    background-color: burlywood;
+    margin: 0;
+
+}
+
+
+
+footer{
+    padding: 20px;
+    background-color: darksalmon;
+    & ul{
+        margin: 0;
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+        
+        li {
+            padding: 0.2em;
+
+            &:hover{
+                background-color: blueviolet;
+            }
+        }
+    }
+}
+input{
+    background-color: burlywood;
+    margin: 10px;
+}

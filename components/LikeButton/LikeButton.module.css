@@ -1,0 +1,20 @@
+.like{
+    margin: .2em;
+    
+}
+
+.big{
+    font-size: xx-large;
+}
+
+.border{
+    outline: 5px solid blue;
+}
+
+.buttondel{
+    max-width: 1px;
+    max-height: 15px;
+    margin-right: 5px;
+    padding-right: 10px;
+    font-size: 10px;
+}

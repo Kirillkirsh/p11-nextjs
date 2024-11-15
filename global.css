@@ -28,3 +28,15 @@ input{
     background-color: burlywood;
     margin: 10px;
 }
+
+td{
+    padding-left: 10px;
+}
+tr{
+    padding: 10px;
+}
+.calen{
+    max-width: 120px;
+    display: flex;
+    justify-content: center;
+}

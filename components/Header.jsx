@@ -5,7 +5,9 @@ const pages = [
     {href:'/', title:'Home'},
     {href:'/info', title:'Info'},
     {href:'/like-demo', title:'ToDo List'},
-    {href:'/todopage', title:"2nd todo"}
+    {href:'/todopage', title:"2nd todo"},
+    {href: '/calendar', title: 'Calendar'},
+    {href:'/jsph', title:'JSPH'}
 ]
 export function Header(){
     console.log('classes = ', classes);

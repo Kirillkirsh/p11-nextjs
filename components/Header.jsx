@@ -4,11 +4,12 @@ import classes from './Header.module.css';
 const pages = [
     {href:'/', title:'Home'},
     {href:'/info', title:'Info'},
+    {href:'/exam-page', title:'EXAM'},
     {href:'/like-demo', title:'ToDo List'},
     {href:'/todopage', title:"2nd todo"},
     {href: '/calendar', title: 'Calendar'},
-    {href:'/jsph', title:'JSPH'},
-    {href:'/exam-page', title:'EXAM'}
+    {href:'/jsph', title:'JSPH'}
+    
 ]
 export function Header(){
     console.log('classes = ', classes);

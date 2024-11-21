@@ -7,7 +7,7 @@ export default function JSPHDemo() {
     const [users, setUsers] = useState([]);
     return <>
         
-        <GetUser id={value}/>
+        {/* <GetUser id={value}/> */}
     </>
 }
 

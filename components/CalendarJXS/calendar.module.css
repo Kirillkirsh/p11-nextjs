@@ -2,3 +2,15 @@
     max-width: 100px;
     
 }
+.diva{
+    max-width: 350px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.spandi{
+    max-width: 10px;
+    margin:5px;
+    padding: 10px;
+    border: 1px solid black;
+}

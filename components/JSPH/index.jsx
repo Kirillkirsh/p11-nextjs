@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import classes from './User.module.css';
 
 export default function JSPHDemo() {
-    const
-        [value, setValue] = useState(3);
+    
+    const [users, setUsers] = useState([]);
     return <>
-        <input type="number" value={value} onInput={event => setValue(+event.target.value)}/>
+        
         <GetUser id={value}/>
     </>
 }
@@ -18,7 +18,7 @@ function GetUser({ id }) {
 
     useEffect(() => {
         async function start() {
-            console.log('effect', id)
+            
             setUser(null);
             try {
                 const

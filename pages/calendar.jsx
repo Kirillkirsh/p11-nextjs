@@ -1,5 +1,6 @@
-import CalendarMDY from "../components/CalendarJXS";
+import Calendar from "../components/CalendarJXS";
+
 
 export default function DemoCalendar(){
-    return <CalendarMDY/>
+    return <Calendar/>
 }

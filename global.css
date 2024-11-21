@@ -40,3 +40,9 @@ tr{
     display: flex;
     justify-content: center;
 }
+
+.diva{
+    max-width: 350px;
+    display: flex;
+    flex-wrap: wrap;
+}

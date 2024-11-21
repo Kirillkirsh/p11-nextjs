@@ -1,55 +1,49 @@
-import { useState } from "react";
-import classes from './calendar.module.css';
-export default function CalendarMDY() {
-    
-    return <fieldset>
-        <CalendarDays year={2024} month={11} />
-    </fieldset>
+
+import React, { useState, useEffect } from 'react';
+import classes from './calendar.module.css'
+
+export default function Calendar() {
+    const [selectdate, setselectDate] = useState('');
+    const [days, setDays] = useState([]);
+  
+    useEffect(() => {
+      if (selectdate) {
+        const [year, month] = selectdate.split('-');
+        const calendarDays = generateCalendar(parseInt(year), parseInt(month) - 1);
+        setDays(calendarDays);
+      }
+    }, [selectdate]);
+  
+    return (
+      <div>
+        <h1>Календарь</h1>
+        <input type="month" value={selectdate} onChange={(event) => setselectDate(event.target.value)}/>
+  
+        <div className={classes.diva}>
+          <RenderDays days={days}/>
+        </div>
+      </div>
+    );
+  }
+
+function generateCalendar(year, month) {
+  const date = new Date(year, month, 1);
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const startDay = date.getDay();
+
+  const calendarDays = [];
+  for (let i = 0; i < startDay; i++) {
+    calendarDays.push(null);
+  }
+
+  for (let day = 1; day <= daysInMonth; day++) {
+    calendarDays.push(day);
+  }
+
+  return calendarDays;
 }
 
-function CalendarDays() {
-    const
-        [value, setValue] = useState('2000-01'),
-        [year, month] = value.split('-'),
-        date = new Date(year, month)
-        ;
-        
-    
-
-    return <><fieldset className={classes.calen}>
-        <input type="month" value={value} onInput={event => {setValue(event.currentTarget.value)}} />
-        <CalendarOut date={date} />
-    </fieldset>
-    </>
+function RenderDays({days}) {
+  return <fieldset className={classes.diva}>{days.map((day, index) => (<span key={index} className={classes.spandi}>
+    {day !== null ? day : ' '}</span>))}</fieldset>;
 }
-
-// function week(monday, days){
-//     let str = '';
-//     for(let i = monday; i < monday+7; i++){
-//         let cell = String(i);
-//         if(i < 1) cell = '<';
-//         if(i > days) cell ='>';
-//         str += " " + cell.padStart(2, '_');
-//     }
-// }
-
-function CalendarOut({date}){
-    const year = date.getFullYear(), 
-    firstDayOfWeek = date.getDay(),
-    month = date.getMonth(),
-    lastDay = (new Date(year, month, 0)).getDate();
-    
-    return<>{lastDay}</>
-    
-
-    
-}
-
-
-// function month({shift, days}) {
-//     for(let m = 1 - shift; m <= days; m+=7){week(m,days)}
-    
-// }
-//const firstDayWeek = (new Date(year, month, 1)).getDay(),
-  //      lastDayWeek = (new Date(year, month + 1, 0).getDay()),
-    //    lastDayNum = new Date(year, month + 1, 0);

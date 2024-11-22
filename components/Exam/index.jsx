@@ -5,7 +5,7 @@ export default function ExamMovie() {
     const [request, setRequest] = useState('');
     const [movies, setMovies] = useState([]);
 
-    const fetchMovies = async (request) => {
+    async function fetchMovies(request){
         if (!request) {
             setMovies([]);
             return;
@@ -25,7 +25,7 @@ export default function ExamMovie() {
         }
     };
 
-    const searchButton = () => {
+    function searchButton(){
         fetchMovies(request);
     };
 

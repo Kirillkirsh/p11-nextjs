@@ -1,0 +1,56 @@
+.container {
+    padding: 20px;
+    width: 400px;
+    margin: auto;
+    border: 1px solid #4a90e2;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #e7f4ff;
+}
+
+.styleH1 {
+    text-align: center;
+    color: #2a6b9a;
+}
+
+.inputMovie {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #4a90e2;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: #357ab8;
+}
+
+.listMovie {
+    margin-top: 20px;
+}
+
+.cardMovie {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #90c4f4;
+    border-radius: 4px;
+    background-color: #f0f8ff;
+}
+
+.imgMovie {
+    width: 100px;
+    height: auto;   
+    margin-top: 10px;
+}

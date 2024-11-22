@@ -1,5 +1,5 @@
 body{
-    background-color: burlywood;
+    background-color: #dde3ed;
     margin: 0;
 
 }
@@ -24,10 +24,7 @@ footer{
         }
     }
 }
-input{
-    background-color: burlywood;
-    margin: 10px;
-}
+
 
 td{
     padding-left: 10px;

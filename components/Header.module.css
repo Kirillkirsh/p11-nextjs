@@ -1,6 +1,6 @@
 .header{
     padding: 20px;
-    background-color: darksalmon;
+    background-color: #9dc0fc;
     & ul {
         margin: 0;
         list-style-type: none;

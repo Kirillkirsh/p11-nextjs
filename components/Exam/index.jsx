@@ -1,53 +1,52 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
+import classes from './exam.module.css';
 
 export default function ExamMovie() {
     const [request, setRequest] = useState('');
     const [movies, setMovies] = useState([]);
-    
-    useEffect(() => {
-         async function fetchMovies(){
-            if (!request) {
+
+    const fetchMovies = async (request) => {
+        if (!request) {
+            setMovies([]);
+            return;
+        }
+
+        try {
+            const response = await fetch(`https://www.omdbapi.com/?s=${request}&apikey=a2b07930&s`);
+            const data = await response.json();
+
+            if (data.Search) {
+                setMovies(data.Search);
+            } else {
                 setMovies([]);
-                return;
             }
+        } catch (error) {
+            console.error('Ошибка :', error);
+        }
+    };
 
-            try {
-                const response = await fetch(`https://www.omdbapi.com/?s=${request}&apikey=a2b07930&s`);
-                const data = await response.json();
-
-                if (data.Search) {
-                    setMovies(data.Search);
-                } else {
-                    setMovies([]);
-                }
-            } catch (error) {
-                console.error('Error fetching the movies:', error);
-            }
-        };
-
-        fetchMovies();
-    }, [request]);
+    const searchButton = () => {
+        fetchMovies(request);
+    };
 
     return (
-        <div style={{ padding: '20px', width:'100px' }}>
-            <h1>Поиск кино</h1>
-            <input value={request} onChange={(e) => setRequest(e.target.value)} placeholder="Введите название фильма"/>
-            <div>
-                {movies.map(movie => (<MovieCard  movie={movie} />))}
+        <div className={classes.container}>
+            <h1 className={classes.styleH1}>Поиск кино</h1>
+            <input value={request} onChange={event => setRequest(event.target.value)}  placeholder="Введите название фильма" className={classes.inputMovie}/>
+            <button onClick={searchButton} className={classes.button}>Найти</button>
+            <div className={classes.listMovie}>
+                {movies.map(movie => (<MovieCard key={movie.imdbID} movie={movie} />))}
             </div>
         </div>
     );
 }
 
-
 function MovieCard({ movie }) {
     return (
-        <fieldset style={{ margin: '10px 0',  }}>
+        <fieldset className={classes.cardMovie}>
             <h2>{movie.Title}</h2>
             <p>{movie.Year}</p>
-            {movie.Poster && <img src={movie.Poster} style={{ width: '100px' }} />}
+            {movie.Poster && <img src={movie.Poster} className={classes.imgMovie} />}
         </fieldset>
     );
 }
-
-
